@@ -13,6 +13,7 @@ import Icon from "@material-ui/core/Icon";
 // core components
 import AdminNavbarLinks from "components/Navbars/AdminNavbarLinks.jsx";
 import RTLNavbarLinks from "components/Navbars/RTLNavbarLinks.jsx";
+import EventSearch from "../EventSearch/EventSearch.jsx";
 
 import sidebarStyle from "assets/jss/material-dashboard-react/components/sidebarStyle.jsx";
 
@@ -21,8 +22,18 @@ const Sidebar = ({ ...props }) => {
   function activeRoute(routeName) {
     return props.location.pathname.indexOf(routeName) > -1 ? true : false;
   }
+
+  let search = null;
+  if (props.location.pathname === "/admin/table") {
+    search = (<div>
+      <EventSearch/>
+    </div>);
+  }
+
   const { classes, color, logo, image, logoText, routes } = props;
   var links = (
+    <div>
+      {search}
     <List className={classes.list}>
       {routes.map((prop, key) => {
         var activePro = " ";
@@ -77,6 +88,7 @@ const Sidebar = ({ ...props }) => {
         );
       })}
     </List>
+    </div>
   );
   var brand = (
     <div className={classes.logo}>
@@ -93,6 +105,7 @@ const Sidebar = ({ ...props }) => {
       </a>
     </div>
   );
+
   return (
     <div>
       <Hidden mdUp implementation="css">

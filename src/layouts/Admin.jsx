@@ -87,21 +87,50 @@ class Dashboard extends React.Component {
   componentWillUnmount() {
     window.removeEventListener("resize", this.resizeFunction);
   }
+
+  renderSidebar(){
+    const { ...rest } = this.props;
+
+      if (this.props.location.pathname !== "/admin/table") {
+        return (
+          <p>AAAAAAAAAA</p>
+          /*<Sidebar
+            routes={routes}
+            logoText={"Creative Tim"}
+            logo={logo}
+            image={this.state.image}
+            handleDrawerToggle={this.handleDrawerToggle}
+            open={this.state.mobileOpen}
+            color={this.state.color}
+            {...rest}
+          />*/
+        );
+      } else {
+        return (<p>BBBBBBBBBBBBBB</p>)
+      }
+  }
+
+
   render() {
     const { classes, ...rest } = this.props;
+
+
     return (
       <div className={classes.wrapper}>
         <MainNavbar/>
+
         <Sidebar
           routes={routes}
-          logoText={"Creative Tim"}
+          logoText={"Event team"}
           logo={logo}
           image={this.state.image}
           handleDrawerToggle={this.handleDrawerToggle}
           open={this.state.mobileOpen}
           color={this.state.color}
           {...rest}
-        />
+        >
+          {this.renderSidebar()}
+        </Sidebar>
         <div className={classes.mainPanel} ref="mainPanel">
           <Navbar
             routes={routes}

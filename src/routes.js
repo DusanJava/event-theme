@@ -15,6 +15,7 @@ import Typography from "views/Typography/Typography.jsx";
 import Icons from "views/Icons/Icons.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
+import RTLPage from "views/RTLPage/RTLPage.jsx";
 import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.jsx";
 // core components/views for RTL layout
 
@@ -68,6 +69,14 @@ const dashboardRoutes = [
     icon: Notifications,
     component: NotificationsPage,
     layout: "/admin"
+  },
+  {
+    path: "/rtl-page",
+    name: "RTL Support",
+    rtlName: "پشتیبانی از راست به چپ",
+    icon: Language,
+    component: RTLPage,
+    layout: "/rtl"
   }
 ];
 
