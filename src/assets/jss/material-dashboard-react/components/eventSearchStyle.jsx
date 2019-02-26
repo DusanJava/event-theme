@@ -59,6 +59,7 @@ const eventSearchStyle = {
     marginTop: "16px"
   },
   formControl: {
+    marginTop:"5px",
     marginLeft: "20px",
     width: "80%",
     paddingBottom: "10px",
@@ -78,6 +79,10 @@ const eventSearchStyle = {
   },
   submit:{
     marginLeft: "20px"
+  },
+  search:{
+    margin:"20px 0px 20px 20px",
+    padding: "8px 20px",
   }
 };
 

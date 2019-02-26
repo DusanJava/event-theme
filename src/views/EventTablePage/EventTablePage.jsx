@@ -8,6 +8,8 @@ import Table from "components/Table/Table.jsx";
 import Card from "components/Card/Card.jsx";
 import CardHeader from "components/Card/CardHeader.jsx";
 import CardBody from "components/Card/CardBody.jsx";
+import Fab from '@material-ui/core/Fab';
+import Icon from '@material-ui/core/Icon';
 
 const styles = {
   cardCategoryWhite: {
@@ -39,17 +41,36 @@ const styles = {
   }
 };
 
-function TableList(props) {
-  const { classes } = props;
+class EventTablePage extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state={
+      editView: false,
+    };
+  }
+  render(){
+  const { classes } = this.props;
+  let editView = this.state;
   return (
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
         <Card>
           <CardHeader color="primary">
-            <h4 className={classes.cardTitleWhite}>Simple Table</h4>
-            <p className={classes.cardCategoryWhite}>
-              Here is a subtitle for this table
-            </p>
+            <GridContainer>
+                <GridItem xs={12} sm={12} md={8}>
+              <h4 className={classes.cardTitleWhite}>Simple Table</h4>
+              <p className={classes.cardCategoryWhite}>
+                Here is a subtitle for this table
+              </p>
+              </GridItem>
+              <GridItem xs={12} sm={12} md={4}>
+                <Fab onClick={() => this.setState({editView: !editView})} style={{ float: "right", marginRight: "10px", backgroundColor: "#e0e0e0" }} color="primary"
+                     aria-label="Edit">
+                  <Icon style={{ color: "black" }}>add_icon</Icon>
+                </Fab>
+              </GridItem>
+            </GridContainer>
           </CardHeader>
           <CardBody>
             <Table
@@ -67,46 +88,9 @@ function TableList(props) {
           </CardBody>
         </Card>
       </GridItem>
-      {/*<GridItem xs={12} sm={12} md={12}>
-        <Card plain>
-          <CardHeader plain color="primary">
-            <h4 className={classes.cardTitleWhite}>
-              Table on Plain Background
-            </h4>
-            <p className={classes.cardCategoryWhite}>
-              Here is a subtitle for this table
-            </p>
-          </CardHeader>
-          <CardBody>
-            <Table
-              tableHeaderColor="primary"
-              tableHead={["ID", "Name", "Country", "City", "Salary"]}
-              tableData={[
-                ["1", "Dakota Rice", "$36,738", "Niger", "Oud-Turnhout"],
-                ["2", "Minerva Hooper", "$23,789", "Curaçao", "Sinaai-Waas"],
-                ["3", "Sage Rodriguez", "$56,142", "Netherlands", "Baileux"],
-                [
-                  "4",
-                  "Philip Chaney",
-                  "$38,735",
-                  "Korea, South",
-                  "Overland Park"
-                ],
-                [
-                  "5",
-                  "Doris Greene",
-                  "$63,542",
-                  "Malawi",
-                  "Feldkirchen in Kärnten"
-                ],
-                ["6", "Mason Porter", "$78,615", "Chile", "Gloucester"]
-              ]}
-            />
-          </CardBody>
-        </Card>
-      </GridItem>*/}
     </GridContainer>
   );
+  }
 }
 
-export default withStyles(styles)(TableList);
+export default withStyles(styles)(EventTablePage);

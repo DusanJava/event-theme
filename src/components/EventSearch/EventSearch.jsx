@@ -10,6 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import eventSearchStyle from "assets/jss/material-dashboard-react/components/eventSearchStyle.jsx";
 import DatePickers from "../../components/DatePickers/DatePickers"
 import TextField from '@material-ui/core/TextField';
+import Button from "components/CustomButtons/Button.jsx";
 
 const names = [
   'Theater',
@@ -86,7 +87,8 @@ class EventSearch extends React.Component {
             />
           </Grid>
           <Grid item xs={12}>
-            <p className={classes.submit}>Submit button</p>
+            <Button color="primary" className={classes.search}>Search</Button>
+            {/*<p className={classes.submit}>Submit button</p>*/}
           </Grid>
         </Grid>
       </div>

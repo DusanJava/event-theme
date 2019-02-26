@@ -5,18 +5,17 @@ import LibraryBooks from "@material-ui/icons/LibraryBooks";
 import BubbleChart from "@material-ui/icons/BubbleChart";
 import LocationOn from "@material-ui/icons/LocationOn";
 import Notifications from "@material-ui/icons/Notifications";
-import Unarchive from "@material-ui/icons/Unarchive";
 import Language from "@material-ui/icons/Language";
 // core components/views for Admin layout
 import DashboardPage from "views/Dashboard/Dashboard.jsx";
-import UserProfile from "views/UserProfile/UserProfile.jsx";
-import TableList from "views/TableList/TableList.jsx";
+import EventPage from "views/EventPage/EventPage.jsx";
+import TableList from "views/EventTablePage/EventTablePage.jsx";
 import Typography from "views/Typography/Typography.jsx";
 import Icons from "views/Icons/Icons.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
 import RTLPage from "views/RTLPage/RTLPage.jsx";
-import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.jsx";
+import EventTablePage from "./views/EventTablePage/EventTablePage";
 // core components/views for RTL layout
 
 const dashboardRoutes = [
@@ -31,14 +30,14 @@ const dashboardRoutes = [
     path: "/table",
     name: "Event List",
     icon: "content_paste",
-    component: TableList,
+    component: EventTablePage,
     layout: "/admin"
   },
   {
     path: "/user",
     name: "Event page",
     icon: Person,
-    component: UserProfile,
+    component: EventPage,
     layout: "/admin"
   },
 
