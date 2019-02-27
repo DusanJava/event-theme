@@ -75,7 +75,12 @@ const eventSearchStyle = {
   textField:{
     marginLeft: "20px",
     marginBottom: "15px",
-    width: "60%"
+    width: "70%"
+  },
+  textField2:{
+    marginLeft: "5px",
+    marginBottom: "15px",
+    width: "70%"
   },
   submit:{
     marginLeft: "20px"

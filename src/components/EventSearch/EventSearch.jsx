@@ -82,7 +82,7 @@ class EventSearch extends React.Component {
             <TextField
               id="standard-dense"
               label="Price to"
-              className={classes.textField}
+              className={classes.textField2}
               onChange={this.handleChange('name')}
             />
           </Grid>

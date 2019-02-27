@@ -59,15 +59,16 @@ class EventTablePage extends React.Component {
           <CardHeader color="primary">
             <GridContainer>
                 <GridItem xs={12} sm={12} md={8}>
-              <h4 className={classes.cardTitleWhite}>Simple Table</h4>
+              <h4 className={classes.cardTitleWhite}>Event Table</h4>
               <p className={classes.cardCategoryWhite}>
                 Here is a subtitle for this table
               </p>
               </GridItem>
               <GridItem xs={12} sm={12} md={4}>
-                <Fab onClick={() => this.setState({editView: !editView})} style={{ float: "right", marginRight: "10px", backgroundColor: "#e0e0e0" }} color="primary"
+                <Fab onClick={() => this.setState({editView: !editView})}
+                     style={{ float: "right", marginRight: "10px", backgroundColor: "#e0e0e0", width:"40px", height:"40px"}} color="primary"
                      aria-label="Edit">
-                  <Icon style={{ color: "black" }}>add_icon</Icon>
+                  <Icon style={{ color: "black"}}>add_icon</Icon>
                 </Fab>
               </GridItem>
             </GridContainer>
