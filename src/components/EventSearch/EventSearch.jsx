@@ -6,6 +6,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Grid from "@material-ui/core/Grid";
+import Input from "@material-ui/core/Input";
 // core components
 import eventSearchStyle from "assets/jss/material-dashboard-react/components/eventSearchStyle.jsx";
 import DatePickers from "../../components/DatePickers/DatePickers"
@@ -21,13 +22,16 @@ const names = [
 class EventSearch extends React.Component {
   state = {
     eventType: null,
-    selectedDate: new Date('2014-08-18T21:11:54'),
-    name: null
+    selectedDateFrom: new Date(),
+    selectedDateTo: new Date(),
+    priceFrom: null,
+    priceTo: null
   };
 
- /* handleChange = event => {
-    this.setState({ name: event.target.value });
-  };*/
+  handleSelectChange = event => {
+    this.setState({ eventType: event.target.value });
+    console.warn(event.target.value);
+  };
 
   handleChange = name => event => {
     this.setState({ [name]: event.target.value });
@@ -40,15 +44,16 @@ class EventSearch extends React.Component {
       <div style={{backgroundColor:"#e0e0e0"}}>
         <Grid container>
           <Grid item xs={12}>
-            <FormControl className={classes.formControl} >
-              <InputLabel htmlFor="age-simple">Event type</InputLabel>
+            <FormControl className={classes.formControl}>
+              <InputLabel shrink htmlFor="age-label-placeholder">
+                Event type
+              </InputLabel>
               <Select
                 value={this.state.eventType}
-                onChange={this.handleChange}
-                inputProps={{
-                  name: 'eventType',
-                  id: 'age-simple',
-                }}
+                onChange={this.handleSelectChange}
+                input={<Input name="age" id="age-label-placeholder" />}
+                displayEmpty
+                name="eventType"
               >
                 {names.map(name => (
                   <MenuItem  value={name} >
@@ -62,12 +67,14 @@ class EventSearch extends React.Component {
               <DatePickers
                 className={classes.datePicker}
                 label={"Date from"}
+                value={this.state.selectedDateFrom}
               />
           </Grid>
           <Grid item xs={12}>
             <DatePickers
               className={classes.datePicker}
               label={"Date to"}
+              value={this.state.selectedDateTo}
             />
           </Grid>
           <Grid item xs={6}>
@@ -76,6 +83,7 @@ class EventSearch extends React.Component {
               label="Price from"
               className={classes.textField}
               onChange={this.handleChange('name')}
+              value={this.state.priceFrom}
             />
           </Grid>
           <Grid item xs={6}>
@@ -84,6 +92,7 @@ class EventSearch extends React.Component {
               label="Price to"
               className={classes.textField2}
               onChange={this.handleChange('name')}
+              value={this.state.priceTo}
             />
           </Grid>
           <Grid item xs={12}>

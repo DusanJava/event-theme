@@ -59,7 +59,7 @@ const eventSearchStyle = {
     marginTop: "16px"
   },
   formControl: {
-    marginTop:"5px",
+    marginTop:"20px",
     marginLeft: "20px",
     width: "80%",
     paddingBottom: "10px",
