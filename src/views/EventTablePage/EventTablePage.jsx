@@ -47,11 +47,24 @@ class EventTablePage extends React.Component {
     super(props);
     this.state={
       editView: false,
+      page: 0,
+      rowsPerPage: 5,
     };
   }
+
+  handleChangePage = (event, page) => {
+    this.setState({ page });
+  };
+
+  handleChangeRowsPerPage = event => {
+    this.setState({...this.state, rowsPerPage: event.target.value });
+  };
+
   render(){
   const { classes } = this.props;
-  let editView = this.state;
+  let { editView } = this.state;
+  const { page, rowsPerPage } = this.state;
+
   return (
     <GridContainer>
       <GridItem xs={12} sm={12} md={12}>
@@ -76,6 +89,10 @@ class EventTablePage extends React.Component {
           <CardBody>
             <Table
               tableHeaderColor="primary"
+              handleChangePage={this.handleChangePage}
+              handleChangeRowsPerPage={this.handleChangeRowsPerPage}
+              page={page}
+              rowsPerPage={rowsPerPage}
               tableHead={["Name", "Country", "City", "Salary"]}
               tableData={[
                 ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
